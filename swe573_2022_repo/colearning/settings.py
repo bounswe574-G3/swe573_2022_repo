@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-iay#xrto0mph8&h*b1o1s!^40-fx%6k^1jh@6xz0blvo8dg4e^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,15 +76,9 @@ WSGI_APPLICATION = 'colearning.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'databasepostgresql',
-	'USER': 'databasepostgresql_user',
-	'PASSWORD' : 'databasepostgresql_password',
-	'HOST': 'databasepostgresql',
-	'PORT': '5432',
-    }
+
 }
 
 

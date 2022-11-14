@@ -135,7 +135,9 @@
           <th scope="row">{{ forloop.counter }}</th>
           <td>{{i.steptitle|safe}}</td>
           <td>{{i.stepcontent|safe}}</td>
-          <td><a href="{{i.attachment.url}}"> {{ i.attachment }}</a></td>
+          <td>{% if i.attachment %}
+          <a href="{{i.attachment.url}}"> {{ i.attachment }}</a>
+          {% endif %}</td>
           <td>{{i.stepcreator}}</td>
         </tr>
       {% endfor %}

@@ -13,6 +13,10 @@
 					<label for="form-label"> {{ form.title.label_tag }}</label>
 					{{ form.title }}
 				</div>
+				<div class="mb-4">
+					<label for="form-label"> {{ form.link.label_tag }}</label>
+					{{ form.link }}
+				</div>
 				<label>Select Prerequisites:</label>
 				<div class="row mb-4 ms-0">
 				{% for content in relationsform %}

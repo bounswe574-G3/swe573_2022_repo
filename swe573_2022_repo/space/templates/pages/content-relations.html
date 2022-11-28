@@ -19,8 +19,8 @@ $(document).ready(function() {
 
 
   var g = new Dracula.Graph();
-    var width = $(document).width();
-  var height = $(document).height();
+    var width = $(document).width()+70;
+  var height = $(document).height()+10;
 
 var render = function (r, n) {
       var frame = r.rect(0 - 3*n.label.length,  -10, 6*n.label.length, 50);
@@ -40,7 +40,7 @@ var render = function (r, n) {
   $.ajax({
 		type: 'GET',
         async: false,
-		url: '/spacedetails/deep-learning/content',
+		url: '/spacedetails/discover-deep-learning/content',
 		data: {},
     dataType: 'json',
 		success: function (response) {

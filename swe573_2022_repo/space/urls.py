@@ -1,7 +1,7 @@
 from django.urls import path
 
 from space.views.mycreatedspaces import mycreatedspaces
-from .views import homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password, edit_profile, register
+from .views import homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password, edit_profile, register,create_content,content_relations,display_contents,delete_content,temp
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [    
@@ -22,5 +22,10 @@ urlpatterns = [
     path('edit-profile', edit_profile, name='edit-profile'),
     path('register', register, name='register'),
     path('signin', auth_views.LoginView.as_view(template_name='pages/signin.html'), name='signin'),
-    
+    path('spacedetails/<slug:slug>/create-content', create_content, name='create-content'),
+    path('spacedetails/<slug:slug>/edit-content/<int:content_id>', create_content, name='edit-content'),
+    path('spacedetails/<slug:slug>/content', content_relations, name='content-relations'),
+    path('spacedetails/<slug:slug>/display-contents', display_contents, name='display-contents'),
+    path('spacedetails/<slug:slug>/delete-content/<int:id>', delete_content, name='delete-content'),
+    path('spacedetails/<slug:slug>/temp', temp, name='temp'),
 ]

@@ -15,3 +15,7 @@ from .signout import signout
 from .change_password import change_password
 from .edit_profile import edit_profile
 from .register import register
+from .create_content import create_content
+from .content_relations import content_relations,temp
+from .display_contents import display_contents
+from .delete_content import delete_content

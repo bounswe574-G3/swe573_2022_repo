@@ -1,7 +1,7 @@
 from django.urls import path
 
 from space.views.mycreatedspaces import mycreatedspaces
-from .views import homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password, edit_profile, register,create_content,content_relations,display_contents,delete_content,temp
+from .views import homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password,create_term, edit_profile, register,create_content,content_relations,display_contents,delete_content,temp
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [    
@@ -14,6 +14,7 @@ urlpatterns = [
     path('spacedetails/<slug:slug>', spacedetails, name='spacedetails'),
     path('create-space', create_space, name='create-space'),
     path('create-message', create_message, name='create-message'),
+    path('create-term', create_term, name='create-term'),
     path('create-step', create_step, name='create-step'),
     path('update-space/<slug:slug>', update_space, name='update-space'),
     path('delete-space/<slug:slug>', delete_space, name='delete-space'),

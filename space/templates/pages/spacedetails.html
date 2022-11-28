@@ -14,7 +14,7 @@
       <p class="card-text"><b>Creator:</b> {{ space.author }}</p>
       <p class="card-text"> created {{ space.created_date|timesince }} ago.
         <p>
-          {% if thor %}
+          {% if request.user == space.author  %}
           <a class="btn btn-primary" href="{% url 'update-space' slug=space.slug %}">Update</a>
           <a class="btn btn-primary" href="{% url 'delete-space' slug=space.slug %}">Delete</a>
           {% endif %}

@@ -14,7 +14,3 @@ def content_relations(request, slug):
     #json_relations = serializers.serialize('json', [ relations ])
     return JsonResponse({"nodes": nodes, "relations":relations}, status=200)
 
-
-@login_required
-def temp(request, slug):
-    return render(request, 'pages/content-relations.html')

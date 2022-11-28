@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'space',
     'ckeditor',
     'crispy_forms',
+    'quiz',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +79,16 @@ WSGI_APPLICATION = 'colearning.wsgi.application'
 
 
 DATABASES = {
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'postgres',
+        
+    'USER': 'postgres',
+    'PASSWORD' : 'root',
+    'HOST': 'localhost',
+    'PORT': '5432',
+        }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

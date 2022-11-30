@@ -199,7 +199,7 @@
     <h3> Glossary</h3>
 
     {% if request.user in space.members.all or request.user == space.author %}
-    <a class="btn btn-danger mt-3 mb-3" href="{% url 'create-term' %}">Write a Term</a>
+    <a class="btn btn-danger mt-3 mb-3" href="{% url 'create-term' slug=space.slug %}">Write a Term</a>
 
     <table class="table table-striped">
       <thead>

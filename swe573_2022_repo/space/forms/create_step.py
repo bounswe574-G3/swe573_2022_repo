@@ -4,4 +4,4 @@ from space.models import StepModel
 class CreateStepModelForm(forms.ModelForm):
     class Meta:
         model=StepModel
-        fields= ('stepspace', 'steptitle', 'stepcontent', 'attachment')
+        fields= ('steptitle', 'stepcontent', 'attachment')

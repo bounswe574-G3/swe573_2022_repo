@@ -6,7 +6,7 @@
 
 {% block content %} 
 
-    <form action= "{% url 'create-message' %}" method="POST">
+    <form action= "{% url 'create-message' slug=space.slug %}" method="POST">
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}

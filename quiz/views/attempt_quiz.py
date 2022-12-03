@@ -24,4 +24,4 @@ def attempt_quiz(request, id):
         quiz.takers.add(request.user)
         return JsonResponse({"score":score, "total":len(questions)})
     
-    return render(request, 'attempt_quiz.html', context={'quiz':quiz, 'questions':questions})
+    return render(request, 'attempt_quiz.html', context={'quiz': quiz, 'questions': questions})

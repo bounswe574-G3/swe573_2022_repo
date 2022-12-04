@@ -25,7 +25,13 @@
     <label for="html">{{question.option3}}</label><br>
     <input type="radio" id="html" name={{question.statement}} value={{question.option4}}>
     <label for="html">{{question.option4}}</label><br><br>
-    <a href="/spacedetails/{{quiz.space.title}}" class="btn btn-primary">Link</a><br><br>
+
+    {% if question.help_link == null %}
+    
+    {% else %}
+    <a href="{{question.help_link}}" class="btn btn-primary">Link</a><br><br>
+
+    {% endif %}
 
     <input type="hidden" name="correct_answer" value="Correct answer: {{question.answer}}" readonly><br>
 

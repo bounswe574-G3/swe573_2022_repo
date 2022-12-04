@@ -1,5 +1,5 @@
 from django.contrib import admin
-from space.models import SpaceModel, MessageModel, StepModel
+from space.models import SpaceModel, MessageModel, StepModel, TermModel, ResourceModel
 from space.models.step import StepModel
 
 @admin.register(SpaceModel)
@@ -17,4 +17,14 @@ class MessageAdmin(admin.ModelAdmin):
 @admin.register(StepModel)
 class StepAdmin(admin.ModelAdmin):
     list_display=('stepspace', 'steptitle', 'stepcontent', 'attachment', 'stepcreator', 'created_time')
-    search_fields=('steptitle', 'stepcontent')    
+    search_fields=('steptitle', 'stepcontent')   
+
+@admin.register(TermModel)
+class TermAdmin(admin.ModelAdmin):
+    list_display=('termwriter', 'termspace', 'termtitle', 'termstep', 'created_time')
+    search_fields=('termtitle', 'termdefinition')   
+
+@admin.register(ResourceModel)
+class ReourceAdmin(admin.ModelAdmin):
+    list_display=('resourcespace', 'resourcename', 'resourceinfo', 'resourceattachment', 'resourcecreator', 'created_time')
+    search_fields=('resourcename', 'resourceinfo')

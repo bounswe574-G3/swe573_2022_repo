@@ -6,3 +6,5 @@ from .update_space import UpdateSpaceModelForm
 from .edit_profile import EditProfileForm
 from .create_content import CreateContentForm
 from .create_term import CreateTermModelForm
+from .resource import ResourceModelForm
+from .update_resource import UpdateResourceModelForm

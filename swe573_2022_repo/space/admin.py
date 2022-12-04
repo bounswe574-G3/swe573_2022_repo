@@ -16,7 +16,7 @@ class MessageAdmin(admin.ModelAdmin):
 
 @admin.register(StepModel)
 class StepAdmin(admin.ModelAdmin):
-    list_display=('stepspace', 'steptitle', 'stepcontent', 'attachment', 'stepcreator', 'created_time')
+    list_display=('stepspace', 'steptitle', 'stepcontent', 'relatedresource', 'stepcreator', 'created_time')
     search_fields=('steptitle', 'stepcontent')   
 
 @admin.register(TermModel)

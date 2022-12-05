@@ -53,6 +53,11 @@
 
     <label for="">Choose correct option</label>
     <input type="text" name="answer">
+    <br>
+    <br>
+
+    <label for="">Type help link</label>
+    <input type="text" name="helplinks">
 
 </form>
 
@@ -108,6 +113,11 @@
 
             <label for="">Choose correct option</label>
             <input type="text" name="answer">
+            <br>
+            <br>
+
+            <label for="">Type help link</label>
+            <input type="text" name="helplinks">
             
             
             `);
@@ -125,6 +135,7 @@
                     var quizoption3 = [];
                     var quizoption4 = [];
                     var answer = [];
+                    var help_links = [];
                     var space_id = $("input[name=space_id]").val();
                     $("input[name='quizstatement']").each(function () {
                         quizstatements.push($(this).val());
@@ -151,17 +162,23 @@
                         console.log($(this).val())
                     });
 
+                    $("input[name='helplinks']").each(function () {
+                        help_links.push($(this).val());
+                        console.log($(this).val())
+                    });
+
                     console.log(quizstatements);
                     console.log(quizoption1);
                     console.log(quizoption2);
                     console.log(quizoption3);
                     console.log(quizoption4);
+                    console.log(help_links);
 
 
                     $.ajax({
                         type: 'POST',
                         url: "/quiz/create-question/" + space_id + "/",
-                        data: { 'creator': creator, 'title': title, 'description': description, 'quizstatements': quizstatements, 'quizoption1': quizoption1, 'quizoption2': quizoption2, 'quizoption3': quizoption3, 'quizoption4': quizoption4, 'answers':answer},
+                        data: { 'creator': creator, 'title': title, 'description': description, 'quizstatements': quizstatements, 'quizoption1': quizoption1, 'quizoption2': quizoption2, 'quizoption3': quizoption3, 'quizoption4': quizoption4, 'answers':answer, 'helplinks':help_links},
                         success: function (response) {
                             console.log("successful request");
                             alert("Quiz created successfully");

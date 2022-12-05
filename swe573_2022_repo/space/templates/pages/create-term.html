@@ -6,7 +6,7 @@
 
 {% block content %} 
 
-    <form action= "{% url 'create-term' %}" enctype='multipart/form-data', method="POST">
+    <form action= "{% url 'create-term' slug=space.slug %}" enctype='multipart/form-data', method="POST">
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}

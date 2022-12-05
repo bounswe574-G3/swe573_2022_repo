@@ -4,4 +4,4 @@ from space.models import MessageModel
 class CreateMessageModelForm(forms.ModelForm):
     class Meta:
         model=MessageModel
-        fields= ('memberspace', 'message')
+        fields= ('message',)

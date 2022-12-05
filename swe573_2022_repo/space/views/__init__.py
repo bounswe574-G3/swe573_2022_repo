@@ -20,3 +20,6 @@ from .create_content import create_content
 from .content_relations import content_relations
 from .display_contents import display_contents
 from .delete_content import delete_content
+from .resource import resource
+from .update_resource import update_resource
+from .delete_resource import delete_resource

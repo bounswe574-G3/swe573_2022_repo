@@ -8,6 +8,7 @@ def spacedetails(request, slug):
     messages=space.messages.all().order_by('-id')
     steps=space.steps.all()
     terms=space.terms.all()
+    resources=space.resources.all()
     quizes = QuizModel.objects.filter(space=space)
 
     page=request.GET.get('page')
@@ -17,5 +18,6 @@ def spacedetails(request, slug):
         'messages':paginator.get_page(page),
         'steps':steps,
         'terms':terms,
-         'quizes': quizes
+        'resources':resources,
+        'quizes': quizes
     })

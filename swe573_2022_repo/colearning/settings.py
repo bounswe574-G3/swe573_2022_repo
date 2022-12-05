@@ -80,19 +80,17 @@ WSGI_APPLICATION = 'colearning.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', 
         'NAME': 'swe574',
         
     'USER': 'postgres',
-    'PASSWORD' : 'root',
-    'HOST': 'localhost',
+    'PASSWORD' : 'Swe574-3',
+    'HOST': 'database-1.cmph2wah5fmv.us-east-1.rds.amazonaws.com',
     'PORT': '5432',
         }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

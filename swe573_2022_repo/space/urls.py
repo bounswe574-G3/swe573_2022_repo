@@ -1,7 +1,7 @@
 from django.urls import path
 
 from space.views.mycreatedspaces import mycreatedspaces
-from .views import update_resource, homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password,create_term, edit_profile, register,create_content,content_relations,display_contents,delete_content, resource
+from .views import update_resource, homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password,create_term, edit_profile, register,create_content,content_relations,display_contents,delete_content, resource,display_resource
 from .views import delete_resource
 from django.contrib.auth import views as auth_views
 
@@ -32,4 +32,5 @@ urlpatterns = [
     path('spacedetails/<slug:slug>/content', content_relations, name='content-relations'),
     path('spacedetails/<slug:slug>/display-contents', display_contents, name='display-contents'),
     path('spacedetails/<slug:slug>/delete-content/<int:id>', delete_content, name='delete-content'),
+    path('resource/<slug:slug>/<int:id>', display_resource, name='display-resource'),
 ]

@@ -3,8 +3,7 @@
 {% block title %} Co-learning {% endblock %}
 
 {% block content %} 
-<article class="content">
-  <section class="inner">
+
 {% for i in allspaces %} 
 
 <div class="card">
@@ -51,60 +50,4 @@
      
     </ul>
   </nav>
-</section>
-</article>
-  <script>
-    var app;
-
-    $( document ).ready(function() {
-      var marginalia_opts = {
-    show_author: true,
-    viewer: annotatormeltdown.render,
-    renderExtensions: [
-        // related_pages.renderExtension,
-        // annotation_permissions.renderExtension,
-    ],
-    toggle: {
-      class: 'btn btn-green',
-      show: function(){
-        $(".carousel-control").fadeOut();
-      },
-      hide: function(){
-        $(".carousel-control").fadeIn();
-      }
-    }
-  };
-  var _marginalia = annotatorMarginalia(marginalia_opts);
-      app = new annotator.App();
-      app.include(annotator.identity.simple);
-        app.include(annotator.ui.main);
-        app.include(annotator.storage.http, {
-            prefix: window.location.origin,
-            headers: {"username": "{{ user.username }}","X-CSRFToken": "{{ csrf_token }}"}
-        });
-        
-        app.include(function() {
-            return {
-                beforeAnnotationCreated: function (annotation) {
-                    annotation.uri = window.location.href;
-                }
-            }
-        });
-        app.include(annotatorMarginalia, marginalia_opts)
-
-
-        app.start().then(function () {
-          console.log(app.ident);
-          app.ident.identity = "{{ user.username }}";
-          console.log(app.ident.identity);
-            app.annotations.load({
-                uri: window.location.href
-            });
-
-        });
-        
-});
-
-
-</script>
 {% endblock %}

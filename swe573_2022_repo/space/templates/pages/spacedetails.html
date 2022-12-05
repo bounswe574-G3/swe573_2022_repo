@@ -53,8 +53,9 @@
 
           {% for i in resources %}
           <tr>
-            <td>{{i.resourcename|safe}}</td>
-            <td>{{i.resourceinfo|safe}}</td>
+            <td><a href="{% url 'display-resource' slug=space.slug id=i.id %}">
+              <div style="height:100%;width:100%">{{i.resourcename|safe}}</div></a></td>
+            <td>{{i.resourceinfo|safe|truncatechars:30}}</td>
             <td><a href="{{i.resourceattachment.url}}"> {{ i.resourceattachment }}</a></td>
             <td>{{i.resourcecreator}}</td>
             <td>{{i.updated_time}}</td>
@@ -84,8 +85,9 @@
 
           {% for i in resources %}
           <tr>
-            <td>{{i.resourcename|safe}}</td>
-            <td>{{i.resourceinfo|safe}}</td>
+            <td><a href="{% url 'display-resource' slug=space.slug id=i.id %}">
+              <div style="height:100%;width:100%">{{i.resourcename|safe}}</div></a></td>
+              <td>{{i.resourceinfo|safe|truncatechars:30}}</td>
             <td><a href="{{i.resourceattachment.url}}"> {{ i.resourceattachment }}</a></td>
             <td>{{i.resourcecreator}}</td>
             <td>{{i.updated_time}}</td>

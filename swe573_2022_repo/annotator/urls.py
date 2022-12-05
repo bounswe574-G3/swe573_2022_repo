@@ -16,7 +16,6 @@ annotations_root = views.AnnotationViewSet.as_view({"get": "root"})
 
 urlpatterns = format_suffix_patterns(
     [
-        re_path(r"^demo/?$", views.DemoView.as_view(), name="demo"),
         re_path(r"^$", annotations_root, name="root"),
         re_path(r"annotations/?$", annotations_list, name="annotations-list"),
         re_path(

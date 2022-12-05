@@ -4,17 +4,20 @@ from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.urls import reverse
+
 import django_filters
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 import annotator
-from annotator import filters, models, serializers
+from annotator import filters, models
+from annotator.serializers import AnnotationGetSerializer,AnnotationPostSerializer
+
 
 
 class AnnotationViewSet(viewsets.ModelViewSet):
     queryset = models.Annotation.objects.all()
-    serializer_class = serializers.AnnotationSerializer
+    #serializer_class = serializers.AnnotationSerializer
     filter_class = filters.AnnotationFilterSet
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
 
@@ -46,10 +49,6 @@ class AnnotationViewSet(viewsets.ModelViewSet):
     
     def create(self, request, *args, **kwargs):
 
-
-        print(request.user.username)
-        print(request.headers.get('username'))
-
         response = super(AnnotationViewSet, self).create(request, *args, **kwargs)
         response.data = None
         response.status_code = status.HTTP_303_SEE_OTHER
@@ -63,7 +62,8 @@ class AnnotationViewSet(viewsets.ModelViewSet):
         response.data = None
         response.status_code = status.HTTP_303_SEE_OTHER
         return response
+    def get_serializer_class(self):
+        if self.request.method == 'PUT':
+            return AnnotationPostSerializer
+        return AnnotationGetSerializer
 
-
-class DemoView(TemplateView):
-    template_name = "annotator/demo.html"

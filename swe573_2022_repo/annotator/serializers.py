@@ -10,10 +10,21 @@ class RangeSerializer(serializers.ModelSerializer):
         exclude = ("annotation", "id")
 
 
-class AnnotationSerializer(WritableNestedModelSerializer):
+class AnnotationPostSerializer(WritableNestedModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    ranges = RangeSerializer(many=True)
+
+    class Meta:
+        model = models.Annotation
+        fields = "__all__"
+
+
+
+class AnnotationGetSerializer(WritableNestedModelSerializer):
     user = serializers.CharField(default=serializers.CurrentUserDefault())
     ranges = RangeSerializer(many=True)
 
     class Meta:
         model = models.Annotation
         fields = "__all__"
+

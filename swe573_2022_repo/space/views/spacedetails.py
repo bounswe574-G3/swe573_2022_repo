@@ -11,13 +11,16 @@ def spacedetails(request, slug):
     resources=space.resources.all()
     quizes = QuizModel.objects.filter(space=space)
 
-    page=request.GET.get('page')
-    paginator=Paginator(messages,3)
+    page1=request.GET.get('page1', '1')
+    page2=request.GET.get('page2', '1')
+    paginator1=Paginator(messages,3)
+    paginator2=Paginator(resources,3)
+
     return render(request,'pages/spacedetails.html', context={
         'space':space,
-        'messages':paginator.get_page(page),
+        'messages':paginator1.get_page(page1),
         'steps':steps,
         'terms':terms,
-        'resources':resources,
+        'resources':paginator2.get_page(page2),
         'quizes': quizes
     })

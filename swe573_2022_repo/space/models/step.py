@@ -8,7 +8,7 @@ class StepModel(models.Model):
     stepspace=models.ForeignKey(SpaceModel, on_delete=models.CASCADE, related_name="steps", blank=True)
     steptitle=models.CharField(max_length=50, blank=False, null=False)
     stepcontent=RichTextField(max_length=500, blank=False, null=False)
-    attachment=models.FileField(upload_to="files",blank=True, null=True)    
+    relatedresource=models.TextField()    
     created_time=models.DateTimeField(auto_now_add=True, verbose_name="Created Time")
     updated_time=models.DateTimeField(auto_now=True, verbose_name="Updated Time")
  

@@ -435,7 +435,7 @@
 </div>
 
 
-<div class="row">
+<div class="row" style="margin-top: 1%;">
   <div class="col-md-7">
     <h3> Latest Activity</h3>
     {% if request.user in space.members.all or request.user == space.author %}
@@ -445,9 +445,6 @@
 
     <div class="card">
       <div class="card-body" style="display:flex;flex-direction: row;">
-        <div>
-          <img src="{% static 'img/no-avatar.jpg' %}" class="rounded" class="pt-4" width="75px" height="100px">
-        </div>
         <div>
           <h5 class="card-title">{{i.activity.actor}}</h5>
           <p class="car-text"> {{i.activity.summary}}</p>
@@ -501,73 +498,6 @@
 
   </div>
 
-
-
-
-  <div class=" col-md-5">
-    <h3> Learning Steps</h3>
-
-    {% if request.user in space.members.all or request.user == space.author %}
-    <a class="btn btn-danger mt-3 mb-3" href="{% url 'create-step' slug=space.slug %}">Add a Step</a>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Step #</th>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th scope="col">Related Resource</th>
-          <th scope="col">Creator</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        {% for i in steps %}
-        <tr>
-          <th scope="row">{{ forloop.counter }}</th>
-          <td>{{i.steptitle|safe}}</td>
-          <td>{{i.stepcontent|safe}}</td>
-          <td>{{i.relatedresource|safe}}</td>
-          <td>{{i.stepcreator}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    {% elif request.user.is_authenticated %}
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Step #</th>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th scope="col">Related Resource</th>
-          <th scope="col">Creator</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        {% for i in steps %}
-        <tr>
-          <th scope="row">{{ forloop.counter }}</th>
-          <td>{{i.steptitle|safe}}</td>
-          <td>{{i.stepcontent|safe}}</td>
-          <td>{{i.relatedresource|safe}}</td>
-          <td>{{i.stepcreator}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    {% else %}
-
-    Please login to view this part.
-
-    {% endif %}
-
-
-  </div>
 </div>
 
 

@@ -12,10 +12,7 @@ def spacedetails(request, slug):
     terms = space.terms.all()
     resources = space.resources.all()
     quizes = QuizModel.objects.filter(space=space)
-    
     activities = ActivityStreamModel.objects.filter(activity__context=space.title).order_by("-activity__published")
-
-    print(activities)
 
     page1 = request.GET.get('page1', '1')
     page2 = request.GET.get('page2', '1')

@@ -34,10 +34,12 @@ class MyActivity:
         }
         return activity_dict
 
+    # gerek kalmadı
     def json_creator(activity_dict):
         activity_json = json.dumps(activity_dict)
         return activity_json
 
+    # gerek kalmadı
     def json_loader(activity):
         parsed_data = json.loads(activity)
         return parsed_data
@@ -142,8 +144,7 @@ def on_create_step(sender, instance, **kwargs):
         published=datetime.today().strftime('%d/%m/%Y, %H:%M:%S'),
     )
 
-    activity_data_json = MyActivity.json_creator(
-        crt_stp_activity.dict_creator())
+    activity_data_json = crt_stp_activity.dict_creator()
 
     ActivityStreamModel.objects.create(activity=activity_data_json)
 
@@ -166,8 +167,7 @@ def on_create_term(sender, instance, **kwargs):
         published=datetime.today().strftime('%d/%m/%Y, %H:%M:%S'),
     )
 
-    activity_data_json = MyActivity.json_creator(
-        crt_trm_activity.dict_creator())
+    activity_data_json = crt_trm_activity.dict_creator()
 
     ActivityStreamModel.objects.create(activity=activity_data_json)
 
@@ -186,8 +186,7 @@ def on_create_quiz(sender, instance, **kwargs):
         published=datetime.today().strftime('%d/%m/%Y, %H:%M:%S'),
     )
 
-    activity_data_json = MyActivity.json_creator(
-        crt_qz_activity.dict_creator())
+    activity_data_json = crt_qz_activity.dict_creator()
 
     ActivityStreamModel.objects.create(activity=activity_data_json)
 
@@ -210,8 +209,7 @@ def on_create_step(sender, instance, **kwargs):
         published=datetime.today().strftime('%d/%m/%Y, %H:%M:%S'),
     )
 
-    activity_data_json = MyActivity.json_creator(
-        crt_rsc_activity.dict_creator())
+    activity_data_json = crt_rsc_activity.dict_creator()
 
     ActivityStreamModel.objects.create(activity=activity_data_json)
 

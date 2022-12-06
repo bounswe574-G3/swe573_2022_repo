@@ -129,7 +129,3 @@ dmypy.json
 .pyre/
 .vscode
 media
-
-space/migrations/
-quiz/migrations/
-colearning/settings.py

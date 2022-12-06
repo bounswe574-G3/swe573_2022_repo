@@ -130,6 +130,6 @@ dmypy.json
 .vscode
 media
 
-space/migrations
-quiz/migrations
+space/migrations/
+quiz/migrations/
 colearning/settings.py

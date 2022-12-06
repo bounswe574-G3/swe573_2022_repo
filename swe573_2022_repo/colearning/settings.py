@@ -82,14 +82,13 @@ WSGI_APPLICATION = 'colearning.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-        'NAME': 'swe574',
-        
-    'USER': 'postgres',
-    'PASSWORD' : 'Swe574-3',
-    'HOST': 'database-1.cmph2wah5fmv.us-east-1.rds.amazonaws.com',
-    'PORT': '5432',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
@@ -128,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
@@ -141,7 +140,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
+STATIC_ROOT = os.path.join(os.path.dirname(
+    os.path.dirname(BASE_DIR)), 'static')
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'media')
 
 LOGIN_REDIRECT_URL = '/'
@@ -153,6 +153,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
 ]
 
-CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0:8000", "https://0.0.0.0:8000","http://127.0.0.1:8000"]
-
-
+CSRF_TRUSTED_ORIGINS = ["http://0.0.0.0:8000",
+                        "https://0.0.0.0:8000", "http://127.0.0.1:8000"]

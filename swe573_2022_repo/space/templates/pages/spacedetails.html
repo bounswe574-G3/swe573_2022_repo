@@ -12,8 +12,28 @@
     <div class="card-body">
       <h4 class="card-title">{{ space.title }}</h4>
       <p class="card-text">{{ space.content|safe }}</p>
-      <p class="card-text"><h5>Space Members:</h5> {% for j in space.members.all %} {{ j }} {% endfor %} </p>
-      <p class="card-text"><b>Creator:</b> {{ space.author }}</p>
+      <p class="card-text"><h5>Space Members:</h5>
+        <div class="col-md-5">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Member #</th>
+                <th scope="col">Username</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for j in space.members.all %} 
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="{% url 'display-members' slug=space.slug id=j.id %}">{{ j }}</a></td>
+              </tr>
+            {% endfor %}  
+            </tbody>
+          </table>
+        </div>
+               
+      </p>
+      <p class="card-text"><h5><b>Creator: </b><a href="{% url 'display-members' slug=space.slug id=space.author.id %}">{{ space.author }}</a></h5></p>
       <p class="card-text"> created {{ space.created_date|timesince }} ago.
         <p>
           {% if request.user == space.author  %}
@@ -53,7 +73,7 @@
 
           {% for i in resources %}
           <tr>
-            <td>{{i.resourcename|safe}}</td>
+            <td><a href="{% url 'display-resource' slug=space.slug id=i.id %}">{{i.resourcename|safe}}</a></td>
             <td>{{i.resourceinfo|safe|truncatechars_html:150}}</td>
             <td>{% if i.resourceattachment %}
               <a href="{{i.resourceattachment.url}}"> {{ i.resourceattachment }}</a>
@@ -124,7 +144,7 @@
 
           {% for i in resources %}
           <tr>
-            <td>{{i.resourcename|safe}}</td>
+            <td><a href="{% url 'display-resource' slug=space.slug id=i.id %}">{{i.resourcename|safe}}</a></td>
             <td>{{i.resourceinfo|safe|truncatechars_html:150}}</td>
             <td>{% if i.resourceattachment %}
               <a href="{{i.resourceattachment.url}}"> {{ i.resourceattachment }}</a>
@@ -279,15 +299,18 @@
       </thead>
       <tbody>
 
+        
         {% for i in steps %}
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td>{{i.steptitle|safe}}</td>
-          <td>{{i.stepcontent|safe}}</td>
+          <td><a href="{% url 'display-step' slug=space.slug id=i.id %}">
+            <div style="height:100%;width:100%">{{i.steptitle|safe}}</div></a></td>
+          <td>{{i.stepcontent|safe|truncatechars_html:100}}</td>
           <td>{{i.relatedresource|safe}}</td>
           <td>{{i.stepcreator}}</td>
-        </tr>
+        </tr>          
         {% endfor %}
+
       </tbody>
     </table>
 
@@ -308,8 +331,9 @@
         {% for i in steps %}
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td>{{i.steptitle|safe}}</td>
-          <td>{{i.stepcontent|safe}}</td>
+          <td><a href="{% url 'display-step' slug=space.slug id=i.id %}">
+            <div style="height:100%;width:100%">{{i.steptitle|safe}}</div></a></td>
+          <td>{{i.stepcontent|safe|truncatechars_html:100}}</td>
           <td>{{i.relatedresource|safe}}</td>
           <td>{{i.stepcreator}}</td>
         </tr>

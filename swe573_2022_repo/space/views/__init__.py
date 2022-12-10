@@ -23,3 +23,6 @@ from .delete_content import delete_content
 from .resource import resource
 from .update_resource import update_resource
 from .delete_resource import delete_resource
+from .display_resource import display_resource
+from .display_step import display_step
+from .display_members import display_members

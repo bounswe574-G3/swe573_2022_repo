@@ -15,11 +15,12 @@
         <!-- Bootstrap CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>{{ member.username }}</title>
+    <title>{{ member.extendeduser }}</title>
   </head>
 
 
   <body>
+    <p class="tab"><h3 >{{ member.extendeduser }}</h3></p>
     <div class="row">
       <div class="col-md-6">
     
@@ -33,19 +34,23 @@
           <tbody>
             <tr>
               <th >First Name:</th>
-              <td>{{ member.first_name }}</td>
+              <td>{{ member.extendeduser.first_name}}</td>
             </tr>
             <tr>
               <th >Last Name:</th>
-              <td>{{ member.last_name }}</td>
+              <td>{{ member.extendeduser.last_name }}</td>
             </tr>
             <tr>
               <th>E-Mail:</th>
-              <td>{{ member.email }}</td>
+              <td>{{ member.extendeduser.email }}</td>
             </tr>
             <tr>
               <th>Id:</th>
-              <td>{{ member.id}}</td>
+              <td>{{ member.extendeduser.id}}</td>
+            </tr>
+            <tr>
+              <th>Area of Interest:</th>
+              <td>{{ member.interest}}</td>
             </tr>
           </tbody>
         </table> 

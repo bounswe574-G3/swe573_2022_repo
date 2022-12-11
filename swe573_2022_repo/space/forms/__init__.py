@@ -8,3 +8,4 @@ from .create_content import CreateContentForm
 from .create_term import CreateTermModelForm
 from .resource import ResourceModelForm
 from .update_resource import UpdateResourceModelForm
+from  .edit_profile1 import EditProfile1Form

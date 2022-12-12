@@ -10,6 +10,7 @@ class QuestionModel(models.Model):
     option3 = models.CharField(max_length=50)
     option4 = models.CharField(max_length=50)
     answer = models.CharField(max_length=100, null=True, blank=True)
+    help_link = models.URLField(null=True, blank=True, default=None)
 
     def __str__(self):
         return str(self.statement)

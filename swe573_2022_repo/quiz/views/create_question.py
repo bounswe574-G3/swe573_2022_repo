@@ -24,9 +24,11 @@ def create_question(request, space_id):
         quiz_option3 = request.POST.getlist('quizoption3[]')
         quiz_option4 = request.POST.getlist('quizoption4[]')
         answers = request.POST.getlist('answers[]')
+        help_links = request.POST.getlist('helplinks[]')
 
         for index, option1 in enumerate(quiz_option1):
             QuestionModel.objects.create(quiz=quiz, statement=quiz_statements[index], option1=quiz_option1[index],
-                                            option2=quiz_option2[index], option3=quiz_option3[index], option4=quiz_option4[index],  answer=answers[index])
+                                            option2=quiz_option2[index], option3=quiz_option3[index], 
+                                            option4=quiz_option4[index],  answer=answers[index], help_link=help_links[index] if help_links[index] is not '' else None)
     
     return render(request,'create-question.html', context={'space_id':space_id})

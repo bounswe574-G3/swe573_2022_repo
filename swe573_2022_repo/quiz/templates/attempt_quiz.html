@@ -24,7 +24,16 @@
     <input type="radio" id="html" name={{question.statement}} value={{question.option3}}>
     <label for="html">{{question.option3}}</label><br>
     <input type="radio" id="html" name={{question.statement}} value={{question.option4}}>
-    <label for="html">{{question.option4}}</label><br>
+    <label for="html">{{question.option4}}</label><br><br>
+
+    {% if question.help_link == null %}
+    
+    {% else %}
+    <a href="{{question.help_link}}" class="btn btn-primary">Link</a><br><br>
+
+    {% endif %}
+
+    <input type="hidden" name="correct_answer" value="Correct answer: {{question.answer}}" readonly><br>
 
 
     <br>
@@ -52,9 +61,15 @@
 
     $("#submit_quiz").click(function (event) {
         event.preventDefault();
+        this.disabled = true;
         $("input[type=radio]:checked").each(function () {
             console.log($(this).val());
             user_answers.push($(this).val());
+        });
+
+        $("input[name=correct_answer]").each(function () {
+            console.log($(this).val());
+            this.type = "text";
         });
 
         $.ajax({
@@ -64,11 +79,10 @@
             success: function (response) {
                 console.log("successful request");
                 console.log(response);
-                $("form").hide();
                 $("#results").append(`
                 <h3>You scored ${response.score} out of ${response.total}</h3>
+                <a href="/quiz/attempt-quiz/{{quiz.id}}" class="btn btn-primary">Re-take Quiz</a>            
                 `)
-                // window.location.replace("/quiz/create-question");
             },
             error: function (response) {
                 // alert the error if any error occured

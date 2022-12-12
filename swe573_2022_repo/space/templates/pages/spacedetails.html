@@ -22,12 +22,14 @@
               </tr>
             </thead>
             <tbody>
+        {% if request.user in space.members.all or request.user == space.author %}
             {% for j in space.members.all %} 
               <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td><a href="{% url 'display-members' slug=space.slug id=j.id %}">{{ j }}</a></td>
               </tr>
-            {% endfor %}  
+            {% endfor %}
+           
             </tbody>
           </table>
         </div>
@@ -35,6 +37,7 @@
       </p>
       <p class="card-text"><h5><b>Creator: </b><a href="{% url 'display-members' slug=space.slug id=space.author.id %}">{{ space.author }}</a></h5></p>
       <p class="card-text"> created {{ space.created_date|timesince }} ago.
+      {% endif %}  
         <p>
           {% if request.user == space.author  %}
           <a class="btn btn-outline-primary" href="{% url 'update-space' slug=space.slug %}">Update</a>

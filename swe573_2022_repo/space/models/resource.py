@@ -7,7 +7,7 @@ class ResourceModel(models.Model):
     resourcecreator=models.ForeignKey(User, on_delete=models.CASCADE,related_name="resource")
     resourcespace=models.ForeignKey(SpaceModel, on_delete=models.CASCADE, related_name="resources", blank=True)
     resourcename=models.CharField(max_length=50, blank=False, null=False)
-    resourceinfo=RichTextField(max_length=500, blank=True, null=True)
+    resourceinfo=RichTextField(max_length=5000, blank=True, null=True)
     resourceattachment=models.FileField(upload_to="files_resource",blank=True, null=True)
     created_time=models.DateTimeField(auto_now_add=True, verbose_name="Created Time")
     updated_time=models.DateTimeField(auto_now=True, verbose_name="Updated Time") 

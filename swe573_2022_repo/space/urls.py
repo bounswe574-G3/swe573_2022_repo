@@ -1,7 +1,7 @@
 from django.urls import path
 
 from space.views.mycreatedspaces import mycreatedspaces
-from .views import update_resource, homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password,create_term, edit_profile, register,create_content,content_relations,display_contents,delete_content, resource,display_resource
+from .views import update_resource, homepage, signout, spaces, aboutus, mycreatedspaces, mymemberspaces, spacedetails, create_space, create_message, warning, create_step, update_space, delete_space, signout, change_password,create_term, edit_profile, register,create_content,content_relations,display_contents,delete_content, resource,display_resource, display_step, display_members, edit_profile1
 from .views import delete_resource
 from django.contrib.auth import views as auth_views
 
@@ -17,6 +17,8 @@ urlpatterns = [
     path('create-message/<slug:slug>', create_message, name='create-message'),
     path('create-term/<slug:slug>', create_term, name='create-term'),
     path('create-step/<slug:slug>', create_step, name='create-step'),
+    path('display-step/<slug:slug>/<int:id>', display_step, name='display-step'),
+    path('display-members/<slug:slug>/<int:id>', display_members, name='display-members'),
     path('resource/<slug:slug>', resource, name='resource'),
     path('update-resource/<slug:slug>/<int:id>', update_resource, name='update-resource'),
     path('delete-resource/<slug:slug>/<int:id>', delete_resource ,name='delete-resource'),
@@ -25,6 +27,7 @@ urlpatterns = [
     path('signout', signout, name='signout'),
     path('change-password', change_password, name='change-password'),
     path('edit-profile', edit_profile, name='edit-profile'),
+    path('edit-profile1', edit_profile1, name='edit-profile1'),
     path('register', register, name='register'),
     path('signin', auth_views.LoginView.as_view(template_name='pages/signin.html'), name='signin'),
     path('spacedetails/<slug:slug>/create-content', create_content, name='create-content'),

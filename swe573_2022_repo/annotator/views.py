@@ -18,9 +18,11 @@ from annotator.serializers import AnnotationGetSerializer,AnnotationPostSerializ
 class AnnotationViewSet(viewsets.ModelViewSet):
     queryset = models.Annotation.objects.all()
     #serializer_class = serializers.AnnotationSerializer
-    filter_class = filters.AnnotationFilterSet
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-
+    #filter_class = filters.AnnotationFilterSet
+    #filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['uri']
+    
     def root(self, _):
 
         return JsonResponse(

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from space.models import SpaceModel, MessageModel, StepModel, TermModel, ResourceModel
+from space.models import SpaceModel, MessageModel, StepModel, TermModel, ResourceModel, ExtendedUser
 from space.models.step import StepModel
 
 @admin.register(SpaceModel)
@@ -28,3 +28,8 @@ class TermAdmin(admin.ModelAdmin):
 class ReourceAdmin(admin.ModelAdmin):
     list_display=('resourcespace', 'resourcename', 'resourceinfo', 'resourceattachment', 'resourcecreator', 'created_time')
     search_fields=('resourcename', 'resourceinfo')
+
+@admin.register(ExtendedUser)
+class ExtendedUserAdmin(admin.ModelAdmin):
+    list_display=('interest', 'extendeduser')
+    search_fields=('interest',)

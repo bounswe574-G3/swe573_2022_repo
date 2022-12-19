@@ -14,9 +14,6 @@ def create_annotation(request):
     if  request.method == "POST":
         ann = AnnotationModel()
         ann.annotation = request.POST.get('annotation')
-        ann.creator = request.user
-        ann.uri = request.POST.get('uri')
-        ann.annotation_id = request.POST.get('annotationid')
         ann.save()
 
         return JsonResponse({"data": 'success'}, status=200)

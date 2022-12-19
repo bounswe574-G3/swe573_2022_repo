@@ -14,7 +14,8 @@ import json
 def get_annotations(request):
     if  request.method == "GET":
         res = []
-        data = list(AnnotationModel.objects.filter(uri=request.GET.get('uri')).values_list('annotation'))
+        data = list(AnnotationModel.objects.filter(annotation__0__icontains=request.GET.get('uri')).values_list('annotation'))
+        print(len(data))
         for ann in data:
             print(ann)
             json_data =json.loads(ann[0])

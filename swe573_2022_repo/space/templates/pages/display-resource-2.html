@@ -37,6 +37,12 @@ html, body {
         line-height:27px;
       }
       
+      .comment:nth-child(2) {
+        display: none;
+      }
+      .r6o-tag{
+        display: none !important;
+      }
     </style>
   </head>
 
@@ -81,13 +87,13 @@ html, body {
           console.log('selected', a);
         });
         r.on('createAnnotation', function(a) {
+          var annId = a.id;
+          a.id = window.location.href + '/'+ annId;
           $.ajax({
             type: 'POST',
             url: "/api/create-annotation/",
             data: {
               annotation: JSON.stringify(a),
-              uri: window.location.href,
-              annotationid:a.id,
               'csrfmiddlewaretoken': '{{ csrf_token }}',},
             dataType: 'json',
             success: function (response) {
@@ -106,7 +112,6 @@ html, body {
             url: "/api/update-annotation/",
             data: {
               annotation: JSON.stringify(a),
-              annotationid:a.id,
               'csrfmiddlewaretoken': '{{ csrf_token }}',},
             dataType: 'json',
             success: function (response) {
@@ -114,6 +119,7 @@ html, body {
             },
             error: function (response) {
               alert(response["responseJSON"]["error"]);
+              location.reload();
             }
           })
           console.log('updated', a);
@@ -123,7 +129,7 @@ html, body {
             type: 'POST',
             url: "/api/delete-annotation/",
             data: {
-              annotationid:a.id,
+              annotation: JSON.stringify(a),
               'csrfmiddlewaretoken': '{{ csrf_token }}',},
             dataType: 'json',
             success: function (response) {
@@ -131,6 +137,7 @@ html, body {
             },
             error: function (response) {
               alert(response["responseJSON"]["error"]);
+              location.reload();
             }
           })
         });

@@ -13,6 +13,7 @@
       <p class="card-text">{{ i.content|safe|truncatechars_html:150 }}</p>
       <p class="card-text"> created {{ i.created_date|timesince }} ago.</p>      
       <a href="{% url 'spacedetails' slug=i.slug %}" class="btn btn-primary">Go to Space</a>
+
     </div>
   </div>
   

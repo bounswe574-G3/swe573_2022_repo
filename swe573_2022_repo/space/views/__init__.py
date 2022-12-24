@@ -27,3 +27,9 @@ from .display_resource import display_resource
 from .display_step import display_step
 from .display_members import display_members
 from .edit_profile1 import edit_profile1
+from .quiz_section import quiz_section
+from .resources_section import resource_section
+from .discussion_section import discussion_section
+from .learning_steps import learning_section
+from .glossary_section import glossary_section
+from .graph_section import graph_section

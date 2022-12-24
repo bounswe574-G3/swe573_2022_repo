@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'quiz',
     'annotator',
     'annotation',
+    'mwparserfromhell',
+    'pywikibot',
+    'requests',
 ]
 
 MIDDLEWARE = [

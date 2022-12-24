@@ -11,7 +11,13 @@ class SpaceModel(models.Model):
     content=RichTextField()
     created_date=models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
     members=models.ManyToManyField(User, related_name="includedSpaces", verbose_name='members')
-
+    tag1=models.CharField(max_length=50, blank=True, null=True)
+    wiki1=models.CharField(max_length=50, blank=True, null=True)
+    tag2=models.CharField(max_length=50, blank=True, null=True)
+    wiki2=models.CharField(max_length=50, blank=True, null=True)
+    tag3=models.CharField(max_length=50, blank=True, null=True)
+    wiki3=models.CharField(max_length=50, blank=True, null=True)
+    searchwords=models.CharField(max_length=5000, blank=True, null=True)
     slug=AutoSlugField(populate_from='title', unique=True)
 
 #This class is for displaying the names of the space in admin panel and database.

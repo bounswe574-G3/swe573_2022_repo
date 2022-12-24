@@ -55,8 +55,9 @@ html, body {
       <h1>{{ resource.resourcename }}</h1>
         {{ resource.resourceinfo|safe }}
         <h1>Attachment</h1>
+        {% if i.resourceattachment %}
         <a href="{{resource.resourceattachment.url}}"> {{ resource.resourceattachment }}</a>
-
+        {% endif %}
       </div>
        </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

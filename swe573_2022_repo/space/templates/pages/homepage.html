@@ -7,12 +7,13 @@
 {% for i in allspaces %} 
 
 <div class="card">
-    <h3 class="card-header">Space {{ i.id }}</h3>
+    <h3 class="card-header">{{ i.title }}</h3>
     <div class="card-body">
-      <h4 class="card-title">{{ i.title }}</h4>
+      
       <p class="card-text">{{ i.content|safe|truncatechars_html:150 }}</p>
       <p class="card-text"> created {{ i.created_date|timesince }} ago.</p>      
       <a href="{% url 'spacedetails' slug=i.slug %}" class="btn btn-primary">Go to Space</a>
+
     </div>
   </div>
   

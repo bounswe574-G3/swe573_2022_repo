@@ -12,7 +12,11 @@ def homepage(request):
     if search:
         allspaces= allspaces.filter(
             Q(title__icontains=search) |
-            Q(content__icontains=search)
+            Q(content__icontains=search) |
+            Q(searchwords__icontains=search) |
+            Q(tag1__icontains=search) |
+            Q(tag2__icontains=search) |
+            Q(tag3__icontains=search) 
         ).distinct()
 
     page=request.GET.get('page')

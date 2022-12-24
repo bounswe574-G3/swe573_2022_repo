@@ -19,6 +19,9 @@ djangorestframework = "*"
 django-filter = "*"
 drf-writable-nested = "*"
 django-cors-headers = "*"
+mwparserfromhell="*"
+pywikibot ="*"
+request="*"
 
 [dev-packages]
 

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Co-learning {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-11">
+        <h3> Relationship Graph</h3>
+        {% if request.user in space.members.all or request.user == space.author %}
+        <a class="btn btn-primary" style="float:right" href="{% url 'create-content' slug=space.slug %}">Add</a>
+        <a class="btn btn-warning" style="float: right; margin-right: 30px"
+            href="{% url 'display-contents' slug=space.slug %}">Edit</a>
+        {% endif %}
+        <div id="canvas" data-id="{{space.slug}}"></div>
+    </div>
+
+</div>
+
+
+{% endblock %}

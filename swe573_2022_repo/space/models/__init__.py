@@ -6,3 +6,4 @@ from .relation import RelationModel
 from .glossary import TermModel
 from .resource import ResourceModel
 from .extendedusers import ExtendedUser
+from .activitystream import ActivityStreamModel

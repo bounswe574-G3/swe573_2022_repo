@@ -91,7 +91,7 @@
 </div>
 
 
-<div class="row mt-5 h-50">
+<div class="row mt-5">
   <div class="col-md-3">
     <button class="my-btn"  ><a href="{% url 'quiz_section' slug=space.slug %}">Quiz Section</a></button>
 
@@ -111,7 +111,7 @@
 </div>
 
 
-<div class="row" style="margin-top: 1%;">
+<div class="row" style="margin-top: 10%;">
   <div class="col-md-7">
     <h3> Latest Activity</h3>
     {% if request.user in space.members.all or request.user == space.author %}

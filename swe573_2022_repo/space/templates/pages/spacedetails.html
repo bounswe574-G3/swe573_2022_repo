@@ -17,6 +17,7 @@
 
         {% if request.user in space.members.all or request.user == space.author %}
         <p class="card-text">
+        <p> {{ space.tag1 }} {{ space.tag2 }} {{ space.tag3 }} </p>  
         <h5><b>Creator: </b><a
             href="{% url 'display-members' slug=space.slug id=space.author.id %}">{{space.author}}</a></h5>
         </p>
